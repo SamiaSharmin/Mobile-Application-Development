@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BBE0E0">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Registration Form"
+        android:textSize="26sp"
+        android:textColor="#1A237E"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Student ID -->
+    <EditText
+        android:id="@+id/studentIdTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Student ID"
+        android:inputType="number"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Full Name -->
+    <EditText
+        android:id="@+id/fullNameTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Full Name"
+        android:inputType="textPersonName"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/emailTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email Address"
+        android:inputType="textEmailAddress"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Password -->
+    <EditText
+        android:id="@+id/passwordTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Age -->
+    <EditText
+        android:id="@+id/ageTB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Age"
+        android:inputType="number"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Gender Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textStyle="bold"
+        android:textColor="#3949AB"
+        android:textSize="16dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Gender RadioGroup -->
+    <RadioGroup
+        android:id="@+id/rgGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:layout_marginStart="16dp"/>
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:layout_marginStart="16dp"/>
+    </RadioGroup>
+
+    <!-- Favorite Sports Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Favorite Sports"
+        android:textStyle="bold"
+        android:textColor="#3949AB"
+        android:textSize="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- CheckBoxes -->
+    <CheckBox
+        android:id="@+id/cbFootball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Football"/>
+
+    <CheckBox
+        android:id="@+id/cbCricket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cricket"/>
+
+    <CheckBox
+        android:id="@+id/cbBasketball"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basketball"/>
+
+    <CheckBox
+        android:id="@+id/cbBadminton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Badminton"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Country Label -->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Select Country"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_marginBottom="8dp"/>-->
+
+    <!-- Spinner -->
+<!--    <Spinner-->
+<!--        android:id="@+id/spCountry"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="16dp"/>-->
+
+    <!-- Date of Birth Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth"
+        android:textStyle="bold"
+        android:textColor="#3949AB"
+        android:textSize="16dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Date Button -->
+    <Button
+        android:id="@+id/btnDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Date"
+        android:backgroundTint="#FF9800"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Buttons Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reset"
+            android:backgroundTint="#F44336"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="12dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>
