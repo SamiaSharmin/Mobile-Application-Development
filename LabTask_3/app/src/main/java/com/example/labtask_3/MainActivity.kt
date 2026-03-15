@@ -15,6 +15,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     lateinit var stepsText: TextView
+    lateinit var caloriesText: TextView
+    lateinit var waterText: TextView
+    lateinit var workoutText: TextView
     lateinit var percentText : TextView
     lateinit var progressBar : ProgressBar
     lateinit var quoteText : TextView
@@ -25,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var cardWorkout : androidx.cardview.widget.CardView
 
     var currentSteps= 3500
+    var currentCalories = 450
+    var currentWater = 1.5
+    var currentWorkout = 30
     val goalSteps = 10000
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,75 +44,103 @@ class MainActivity : AppCompatActivity() {
         }
 
         stepsText = findViewById(R.id.tvStepsValue)
+        caloriesText = findViewById(R.id.tvCaloriesValue)
+        waterText = findViewById(R.id.tvWaterValue)
+        workoutText = findViewById(R.id.tvWorkoutValue)
+
         percentText = findViewById(R.id.tvPercent)
         progressBar =findViewById(R.id.progressSteps)
         quoteText = findViewById(R.id.tvQuote)
         btnUpdate = findViewById(R.id.btnUpdate)
-        cardSteps =findViewById(R.id.cardSteps)
-        cardCalories = findViewById(R.id.cardCalories)
-        cardWater = findViewById(R.id.cardWater)
-        cardWorkout = findViewById(R.id.cardWorkout)
-
-        fun updateProgress() {
-
-            val percent = (currentSteps * 100) / goalSteps
-
-            progressBar.progress = percent
-            percentText.text = "$percent%"
-        }
-
-        fun changeQuote() {
-
-            val quotes = listOf(
-                "Stay active, stay healthy!",
-                "Every step counts!",
-                "Push yourself today!",
-                "Small progress is still progress!",
-                "Your only limit is you!"
-            )
-
-            quoteText.text = quotes.random()
-        }
-
-        fun showInputDialogue(){
-            val input = EditText(this)
-            input.hint = "Enter steps"
-
-            AlertDialog.Builder(this).setTitle("Update Steps").setView(input).setPositiveButton("Update"){
-                _, _ ->
-                val newSteps = input.text.toString()
-
-                if(newSteps.isNotEmpty()){
-                    currentSteps = newSteps.toInt()
-                    stepsText.text = currentSteps.toString()
-
-                    updateProgress()
-                    changeQuote()
-                }
-            }.setNegativeButton("Cancel",null).show()
-        }
 
         updateProgress()
 
-        cardSteps.setOnClickListener {
-            Toast.makeText(this,"Steps today:$currentSteps", Toast.LENGTH_SHORT).show()
-        }
-
-        cardCalories.setOnClickListener {
-            Toast.makeText(this,"Calories burned:450", Toast.LENGTH_SHORT).show()
-        }
-
-        cardWater.setOnClickListener {
-            Toast.makeText(this,"Water intake:1.5L", Toast.LENGTH_SHORT).show()
-        }
-
-        cardWorkout.setOnClickListener {
-            Toast.makeText(this,"Workout time:30min", Toast.LENGTH_SHORT).show()
-        }
-
         btnUpdate.setOnClickListener {
-            showInputDialogue()
+            showUpdateOptions()
         }
 
     }
+
+    private fun showUpdateOptions() {
+
+        val options = arrayOf("Steps", "Calories", "Water", "Workout")
+
+        AlertDialog.Builder(this)
+            .setTitle("Update Fitness Data")
+            .setItems(options) { _, which ->
+
+                when (which) {
+                    0 -> showInputDialog("Steps")
+                    1 -> showInputDialog("Calories")
+                    2 -> showInputDialog("Water (Liters)")
+                    3 -> showInputDialog("Workout (Minutes)")
+                }
+
+            }
+            .show()
+    }
+
+    private fun showInputDialog(type: String) {
+
+        val view = layoutInflater.inflate(R.layout.dialog_input, null)
+
+        val input = view.findViewById<EditText>(R.id.inputValue)
+        val title = view.findViewById<TextView>(R.id.dialogTitle)
+
+        title.text = "Update $type"
+        input.hint = "Enter $type"
+
+        AlertDialog.Builder(this).setView(view).setPositiveButton("Update") { _, _ ->
+
+            val value = input.text.toString()
+            if (value.isNotEmpty()) {
+                when (type) {
+
+                    "Steps" -> {
+                        currentSteps = value.toInt()
+                        stepsText.text = currentSteps.toString()
+                        updateProgress()
+                    }
+
+                    "Calories" -> {
+                        currentCalories = value.toInt()
+                        caloriesText.text = "$currentCalories"
+                    }
+
+                    "Water (Liters)" -> {
+                        currentWater = value.toDouble()
+                        waterText.text = "$currentWater L"
+                    }
+
+                    "Workout (Minutes)" -> {
+                        currentWorkout = value.toInt()
+                        workoutText.text = "$currentWorkout min"
+                    }
+                }
+                changeQuote()
+            }
+
+        }.setNegativeButton("Cancel", null).show()
+    }
+
+    private fun updateProgress() {
+
+        val percent = (currentSteps * 100) / goalSteps
+        progressBar.progress = percent
+        percentText.text = "$percent%"
+    }
+
+    private fun changeQuote() {
+
+        val quotes = listOf(
+            "Stay active, stay healthy!",
+            "Every step counts!",
+            "Push yourself today!",
+            "Small progress is still progress!",
+            "Your only limit is you!"
+        )
+
+        quoteText.text = quotes.random()
+    }
+
 }
