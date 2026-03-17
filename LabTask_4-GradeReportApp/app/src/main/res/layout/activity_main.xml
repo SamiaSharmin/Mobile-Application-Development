@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#F4F7FB">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student Grade Report"
+            android:fontFamily="@font/agbalumo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#213448"
+            android:padding="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#EAE0CF"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/agbalumo"
+                android:text="Name: John Doe"
+                android:textColor="#213448"
+                android:textSize="20sp" />
+
+            <TextView
+                android:text="Student ID: 21-12345-1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/agbalumo"
+                android:textSize="20sp"
+                android:textColor="#213448"/>
+
+            <TextView
+                android:text="Semester: Spring 2026"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/agbalumo"
+                android:textSize="20sp"
+                android:textColor="#213448"/>
+
+            <TextView
+                android:text="Department: CSE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/agbalumo"
+                android:textSize="20sp"
+                android:textColor="#213448"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:id="@+id/gradeTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow android:background="#547792">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Subject"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Obtained"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Total"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Grade"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+        <TableRow android:background="#F9FAFC">
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="Math"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="85"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="100"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="A"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow android:background="#EAF1F8">
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="Physics"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="78"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="100"
+                android:textSize="16sp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="B+"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow android:background="#F9FAFC">
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="Chemistry"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="65"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="100"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="B"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow android:background="#EAF1F8">
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="OOP"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="92"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="100"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="A+"
+                android:textSize="16dp" />
+        </TableRow>
+
+        <TableRow android:background="#F9FAFC">
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="Database"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="55"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="100"
+                android:textSize="16dp" />
+
+            <TextView
+                android:fontFamily="@font/agbalumo"
+                android:text="C"
+                android:textSize="16dp" />
+        </TableRow>
+
+
+            <TableRow android:background="#94B4C1">
+
+                <TextView
+                    android:layout_span="2"
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Summary"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Passed: 6"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:fontFamily="@font/agbalumo"
+                    android:padding="8dp"
+                    android:text="Failed: 0"
+                    android:textSize="16dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tvCGPA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:padding="16dp"
+            android:text="CGPA: 3.45"
+            android:textAlignment="center"
+            android:textColor="#213448"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#EAE0CF"
+            android:padding="12dp">
+
+            <EditText
+                android:id="@+id/subjectTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/agbalumo"
+                android:hint="Subject Name"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/obtainedTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/agbalumo"
+                android:hint="Obtained Marks"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <EditText
+                android:id="@+id/totalTB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="#FFFFFF"
+                android:fontFamily="@font/agbalumo"
+                android:hint="Total Marks"
+                android:inputType="number"
+                android:padding="10dp" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#213448"
+                android:fontFamily="@font/agbalumo"
+                android:text="Add Subject"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#547792"
+            android:fontFamily="@font/agbalumo"
+            android:text="Print / Share Report"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</ScrollView>
