@@ -10,9 +10,12 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.labtask_9_e_commerceproductlistingapp.CartManager
 
 class ProductAdapter(private val context: Context, private var productList: MutableList<Product>, private val onCartChanged : (Int)-> Unit):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var fullList: MutableList<Product> = productList.toMutableList()
 
     var isGridMode = false
 
@@ -46,7 +49,7 @@ class ProductAdapter(private val context: Context, private var productList: Muta
 
         if (holder is ListViewHolder) {
             holder.name.text = product.name
-            holder.price.text = "৳${product.price}"
+            holder.price.text = "TK${product.price}"
             holder.rating.rating = product.rating
             holder.category.text = product.category
             holder.image.setImageResource(product.imageRes)
@@ -55,25 +58,64 @@ class ProductAdapter(private val context: Context, private var productList: Muta
 
             holder.btnCart.setOnClickListener {
                 product.inCart = !product.inCart
+
+                if (product.inCart){
+                    CartManager.cartItems.add(product)
+                }else{
+                    CartManager.cartItems.remove(product)
+                }
                 notifyItemChanged(position)
                 onCartChanged(getCartCount())
             }
 
         } else if (holder is GridViewHolder) {
             holder.name.text = product.name
-            holder.price.text = "৳${product.price}"
+            holder.price.text = "TK${product.price}"
             holder.image.setImageResource(product.imageRes)
 
             holder.btnCart.setOnClickListener {
                 product.inCart = !product.inCart
+                if (product.inCart){
+                    CartManager.cartItems.add(product)
+                }else{
+                    CartManager.cartItems.remove(product)
+                }
                 notifyItemChanged(position)
                 onCartChanged(getCartCount())
             }
         }
     }
 
+    fun filter(query: String) {
+        productList = if (query.isEmpty()) {
+            fullList.toMutableList()
+        } else {
+            fullList.filter {
+                it.name.contains(query, true)
+            }.toMutableList()
+        }
+        notifyDataSetChanged()
+    }
+
+    fun filterCategory(category: String) {
+        productList = if (category == "All") {
+            fullList.toMutableList()
+        } else {
+            fullList.filter {
+                it.category.equals(category, true)
+            }.toMutableList()
+        }
+        notifyDataSetChanged()
+    }
+
+    fun setFullList(list: MutableList<Product>) {
+        fullList = list
+        productList = list.toMutableList()
+        notifyDataSetChanged()
+    }
+
     private fun getCartCount(): Int {
-        return productList.count { it.inCart }
+        return fullList.count { it.inCart }
     }
 
     fun updateList(newList: MutableList<Product>) {
